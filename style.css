@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
+
+:root {
+  --desaturated-red: hsl(0, 36%, 70%);
+  --soft-red: hsl(0, 93%, 68%);
+  --dark-grayish-red: hsl(0, 6%, 24%);
+
+  --gradient-from-hover: hsl(0, 0%, 100%);
+  --gradient-to-hover: hsl(0, 100%, 98%);
+
+  --gradient-from: hsl(0, 80%, 86%);
+  --gradient-to: hsl(0, 74%, 74%);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+body {
+  font-size: 16px;
+}
+
+.grid-container {
+  margin: 1rem auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 64px 250px 64px 64px 96px 80px;
+  grid-template-areas: "logo" "main-img" "title-col" "title" "para" "form";
+  box-shadow: var(--dark-grayish-red) 0px 7px 29px 0px;
+}
+
+#logo {
+  grid-area: logo;
+}
+
+#main-img {
+  grid-area: main-img;
+  background-image: url("./images/hero-mobile.jpg");
+  background-size: 100%;
+}
+
+#title-col {
+  grid-area: title-col;
+  display: flex;
+  align-self: flex-end;
+  justify-self: center;
+}
+
+#title {
+  grid-area: title;
+}
+
+#para {
+  grid-area: para;
+}
+
+#email-form {
+  grid-area: form;
+  display: flex;
+  align-self: flex-start;
+  flex-direction: column;
+}
+
+#email-form > div, #email-form > div > button {
+  display: flex;
+  align-items: center;
+}
+
+#email-form > div > button {
+  height: 48px;
+  justify-content: center;
+}
+
+.button--primary {
+  border: none;
+  border-radius: 20px;
+  width: 60px;
+  height: 32px;
+  background: linear-gradient(135deg, var(--gradient-from) 0%, var(--gradient-to) 100%);
+}
+
+.button--primary:hover {
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--desaturated-red) 0%, var(--soft-red) 100%);
+}
+
+.text--light {
+  font-weight: 300;
+}
+
+.text--primary {
+  color: var(--desaturated-red);
+}
+
+.text--black {
+  color: var(--dark-grayish-red);
+}
+
+.text--uppercase {
+  text-transform: uppercase;
+}
+
+.text--center {
+  text-align: center;
+}
+
+.text--show  {
+  opacity: 1;
+}
+
+.text--hide {
+  opacity: 0;
+}
+
+.margin--vertical-center {
+  margin: auto 0;
+}
+
+.margin--left-1 {
+  margin-left: 1rem;
+}
+
+.padding--1 { 
+  padding: 1rem;
+}
+
+.flex--center {
+  display: flex;
+  align-self: flex-end;
+  justify-self: center;
+}
+
+.flex--vertical-items-center {
+  display: flex;
+  align-items: center;
+}
+
+.flex--vertical-items-self-center {
+  display: flex;
+  align-self: center;
+}
+
+.input__email {
+  border: 1px solid var(--desaturated-red);
+  border-radius: 24px;
+  color: var(--desaturated-red);
+  padding: 8px;
+  height: 32px;
+}
+
+.input__email--error {
+  border: 2px solid var(--soft-red);
+}
+
+.input__email:focus {
+  color: var(--dark-grayish-red);
+  outline: none;
+}
+
+@media only screen and (min-width: 1020px) {
+  
+  .grid-container {
+    width: 1020px;
+    grid-template-columns: 410px 610px;
+    grid-template-rows: 64px 128px 128px repeat(2, 208px);
+    grid-template-areas: "logo main-img" "title-col main-img" "title main-img" "para main-img" "form main-img";
+  }
+  
+  #logo {
+    grid-area: logo;
+    margin: 1rem 1rem;
+  }
+
+  #main-img {
+    background-image: url("./images/hero-desktop.jpg");
+  }
+
+  #title-col, #title {
+    font-size: 3.5rem;
+  }
+
+  #title {
+    text-align: left;
+  }
+
+  #title-col {
+    justify-self: left;
+  }
+
+}
